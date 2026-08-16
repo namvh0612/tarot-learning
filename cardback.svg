@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 172" width="100" height="172" role="img" aria-label="Card back">
+  <!--
+    THE CARD BACK.
+
+    One drawing, used at three sizes: the full back of a face-down card, the back
+    of a card mid-flip, and the roughly five-pixel sliver of each of the 78 cards
+    in the fan. That last one is what the composition is actually solving for.
+
+    In a fan every card is hidden but a narrow strip down its leading edge, so a
+    centred device — however handsome — is invisible exactly when you most need to
+    tell one card from the next. The lattice is the part that does that work: a
+    regular diamond diaper carried right out to the border rule, so each sliver
+    shows the same rhythm at a slightly different tilt, and the eye reads
+    seventy-eight separate objects fanned in one direction rather than one navy
+    dome. The engraved star is for the card you are looking at.
+
+    Weight is the whole difficulty: loud enough not to disappear behind the paper
+    grain, quiet enough that a face-up card is still the only thing in the product
+    with any colour in it. So the lattice sits at 22% paper and the device at 80%,
+    which puts the texture just above the grain and the device just below the
+    weight of body type.
+
+    Idiom follows Ornament.svelte: pure stroke, nothing filled, one line weight,
+    and the eight-pointed star is the same construction as the `star` motif there
+    — four long rays, four short, on a circle.
+
+    Colours are literals because an SVG loaded through <img> cannot see the page's
+    custom properties. cardback.test.js holds them to the palette in app.css.
+  -->
+  <defs>
+    <!--
+      Diamond diaper, 6-unit pitch.
+
+      It started at 9 and that was wrong in both directions at once: on a full card
+      the diamonds read as graph paper rather than as a printed diaper, and in the
+      fan a 9-unit pitch is 7.2px against a 6.5px exposed edge, so a sliver could
+      show as little as one crossing. Six units is 4.8px — finer and more woven on
+      the card you are holding, and between one and two crossings on every sliver
+      in the fan, which is what makes the tilt legible.
+    -->
+    <pattern id="lattice" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 0L6 6M6 0L0 6" fill="none" stroke="#f4f1e8" stroke-width="0.4" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- The ink field. -->
+  <rect width="100" height="172" fill="#1b1035"/>
+
+  <!-- Lattice, held inside the inner rule. -->
+  <rect x="7.5" y="7.5" width="85" height="157" fill="url(#lattice)"/>
+
+  <!-- Double border rule, as on a printed plate. -->
+  <rect x="4" y="4" width="92" height="164" fill="none" stroke="#f4f1e8" stroke-opacity="0.45" stroke-width="0.9"/>
+  <rect x="7.5" y="7.5" width="85" height="157" fill="none" stroke="#f4f1e8" stroke-opacity="0.26" stroke-width="0.5"/>
+
+  <!-- Corner ticks: the plate-maker's registration marks. -->
+  <g stroke="#f4f1e8" stroke-opacity="0.4" stroke-width="0.6" fill="none">
+    <path d="M11 15v-4h4"/>
+    <path d="M89 15v-4h-4"/>
+    <path d="M11 157v4h4"/>
+    <path d="M89 157v4h-4"/>
+  </g>
+
+  <!-- The device. A reserve of ink field behind it keeps the lattice from
+       cluttering the star; the two rings seat it on the page. -->
+  <circle cx="50" cy="86" r="30" fill="#1b1035"/>
+  <g stroke="#f4f1e8" fill="none">
+    <circle cx="50" cy="86" r="30" stroke-opacity="0.3" stroke-width="0.7"/>
+    <circle cx="50" cy="86" r="26.5" stroke-opacity="0.18" stroke-width="0.5"/>
+
+    <!-- Eight-pointed star: four long rays, four short, per Ornament's `star`. -->
+    <g stroke-opacity="0.8" stroke-width="0.9" stroke-linecap="round">
+      <path d="M50 86L72 86"/>
+      <path d="M50 86L58.49 94.49"/>
+      <path d="M50 86L50 108"/>
+      <path d="M50 86L41.51 94.49"/>
+      <path d="M50 86L28 86"/>
+      <path d="M50 86L41.51 77.51"/>
+      <path d="M50 86L50 64"/>
+      <path d="M50 86L58.49 77.51"/>
+    </g>
+    <circle cx="50" cy="86" r="4" stroke-opacity="0.8" stroke-width="0.9"/>
+  </g>
+</svg>
