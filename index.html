@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Học Tarot</title>
+    <style>
+      /* Inline, because this warning has to survive app.js failing to load. */
+      #zip-warning {
+        display: none;
+        margin: 3rem auto;
+        max-width: 34rem;
+        padding: 2rem;
+        border: 2px solid #b4462b;
+        border-radius: 12px;
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: #2b2b2b;
+        background: #fff6f3;
+      }
+      #zip-warning h1 { margin: 0 0 0.75rem; font-size: 1.25rem; }
+      #zip-warning code { background: #ffe8e0; padding: 0.1em 0.35em; border-radius: 4px; }
+    </style>
+    <script defer src="./app.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!--
+      Windows lets you browse inside a .zip as though it were a folder. Double-clicking
+      index.html from there extracts that ONE file to a temp directory, so every
+      relative path breaks and the page comes up blank. It is the most likely way a
+      non-technical tester loses the app, and they have no way to guess why — so the
+      check runs before anything else, in plain HTML.
+    -->
+    <div id="zip-warning">
+      <h1 id="warn-title">Cần giải nén trước</h1>
+      <div id="warn-zip">
+        <p>
+          Có vẻ bạn đang mở tệp từ bên trong thư mục nén. Hãy
+          <strong>giải nén cả thư mục ra Màn hình nền (Desktop)</strong>, rồi mới mở
+          <code>index.html</code>.
+        </p>
+        <p style="margin-bottom: 0; color: #6b5b57">
+          It looks like this file was opened from inside a zip. Extract the whole
+          folder first, then open <code>index.html</code>.
+        </p>
+      </div>
+      <div id="warn-crash" style="display: none">
+        <p>Ứng dụng không khởi động được. Chi tiết lỗi:</p>
+        <pre id="warn-detail" style="white-space: pre-wrap; font-size: 13px; background: #ffe8e0; padding: 0.6em; border-radius: 6px"></pre>
+        <p style="margin-bottom: 0; color: #6b5b57">
+          The app failed to start. Please send this message back along with your
+          browser name.
+        </p>
+      </div>
+    </div>
+
+    <div id="app"></div>
+
+    <script>
+      /*
+       * A blank page is the worst outcome for a non-technical tester: nothing to
+       * read, nothing to report. Two different faults can cause it, and the first
+       * version of this check only caught one of them.
+       *
+       *   1. Opened from inside the zip  -> sibling files 404, probe.png fails
+       *   2. The bundle threw            -> files load fine, #app stays empty
+       *
+       * Case 2 is what actually happened, and because probe.png loaded the check
+       * marked itself settled and said nothing at all. Now the probe only chooses
+       * WHICH message to show, and an empty #app is what triggers showing one.
+       */
+      (function () {
+        var pathOk = null;
+        var lastError = "";
+
+        window.addEventListener("error", function (e) {
+          lastError = (e && e.message) || String(e);
+        });
+
+        var probe = new Image();
+        probe.onload = function () { pathOk = true; };
+        probe.onerror = function () { pathOk = false; };
+        probe.src = "probe.png";
+
+        setTimeout(function () {
+          var app = document.getElementById("app");
+          if (app && app.childNodes.length > 0) return; // app mounted, nothing to say
+
+          var box = document.getElementById("zip-warning");
+          if (pathOk === false) {
+            box.style.display = "block";
+            return;
+          }
+          // Files are reachable but nothing rendered: report the real error.
+          document.getElementById("warn-title").textContent = "Không mở được ứng dụng";
+          document.getElementById("warn-zip").style.display = "none";
+          document.getElementById("warn-crash").style.display = "block";
+          document.getElementById("warn-detail").textContent =
+            lastError || "(không có thông báo lỗi)";
+          box.style.display = "block";
+        }, 2000);
+      })();
+    </script>
+  </body>
+</html>

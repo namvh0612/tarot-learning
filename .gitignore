@@ -1,0 +1,43 @@
+# This repository is the BUILT app only. Nothing that produces it belongs here.
+#
+# The patterns below are a backstop, not the mechanism — the mechanism is that
+# this folder is created fresh from the build output and never contains sources.
+# They exist so that a stray copy-paste cannot leak anything.
+
+# Source projects
+/packages/
+/apps/
+/scripts/
+/tools/
+*.authored.json
+depth-*.json
+scenarios.json
+claims/
+knowledge/
+
+# The extracted text of the reference library. This is the one that matters:
+# it is derived from copyrighted books and must never be published.
+.textcache/
+*-index.json
+card-index.json
+chapter-index.json
+manifest.csv
+
+# Reference library itself
+ref/
+*.pdf
+*.epub
+*.djvu
+
+# Build and tooling
+node_modules/
+dist/
+dist-pack/
+*.tgz
+.env
+.dev.vars
+*.log
+
+# OS
+Thumbs.db
+.DS_Store

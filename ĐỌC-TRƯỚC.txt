@@ -1,0 +1,28 @@
+HỌC TAROT — cách mở
+====================
+
+1. Giải nén CẢ THƯ MỤC này ra Màn hình nền (Desktop).
+   Đừng mở thẳng từ bên trong file nén — trang sẽ trắng.
+
+2. Mở thư mục vừa giải nén, bấm đúp vào tệp:  index.html
+
+3. Xong. Không cần cài gì, không cần mạng.
+
+Ghi chú
+-------
+- Ứng dụng chạy hoàn toàn trên máy bạn. Không có gì được gửi đi đâu cả.
+- Phần tiếng Việt của 40 lá Ẩn Phụ đang được dịch. Trong lúc chờ, những lá đó
+  hiển thị bản tiếng Anh — đó không phải lỗi.
+- Ảnh lá bài chưa có. Mỗi lá hiện đang là một ô có tên và ký hiệu chất.
+- Ghi chép trong phần Luyện tập chỉ giữ trong lúc mở. Đóng tab là mất.
+
+Nếu trang trắng
+---------------
+Gần như chắc chắn là do mở từ bên trong file nén. Giải nén ra Desktop rồi mở lại.
+
+
+HOW TO OPEN (English)
+=====================
+1. Extract the WHOLE folder to your Desktop first.
+2. Open the extracted folder and double-click:  index.html
+3. That is all. Nothing to install, no internet needed.

@@ -1,0 +1,45 @@
+Học Tarot — licensing
+=====================
+
+This repository holds a built application. Three different things are bundled in
+it, under three different terms.
+
+
+1. Card images — public domain
+------------------------------
+The 78 card images under `cards/` are scans of the Rider–Waite–Smith tarot deck,
+first published in 1909. The deck is in the public domain. The scans were taken
+from Wikimedia Commons; the exact source page for each image is recorded in
+`cards/sources.json`, and every one reports a public-domain licence.
+
+These are NOT photographs of a modern retail printing. US Games Systems asserts
+rights over its own contemporary reproductions of this deck; nothing here comes
+from those.
+
+
+2. Arthur Edward Waite, "The Pictorial Key to the Tarot" (1911) — public domain
+------------------------------------------------------------------------------
+Where the app shows reference text attributed to Waite 1911, that text is in the
+public domain and is reproduced verbatim and attributed.
+
+
+3. Everything else — © 2026 namvh0612, all rights reserved
+----------------------------------------------------------
+The written card meanings, keywords, the long-form entries, the situation
+descriptions, the concept material, and the application code are original work
+and are not public domain.
+
+You may download this repository and run the application for your own use. You
+may not republish, redistribute, sell, or incorporate the written content into
+another work without permission.
+
+If you want to use any of it, ask.
+
+
+A note on sources
+-----------------
+The written content was developed with reference to a wide range of published
+tarot literature. No prose from any copyrighted modern work is reproduced here.
+Where those books were consulted, it was to establish which readings are common
+across the tradition and which are one author's idiosyncrasy — facts and ideas,
+which are not subject to copyright, expressed in new words.
