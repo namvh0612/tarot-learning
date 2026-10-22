@@ -11,9 +11,7 @@ HỌC TAROT — cách mở
 Ghi chú
 -------
 - Ứng dụng chạy hoàn toàn trên máy bạn. Không có gì được gửi đi đâu cả.
-- Phần tiếng Việt của 40 lá Ẩn Phụ đang được dịch. Trong lúc chờ, những lá đó
-  hiển thị bản tiếng Anh — đó không phải lỗi.
-- Ảnh lá bài chưa có. Mỗi lá hiện đang là một ô có tên và ký hiệu chất.
+- Đủ 78 lá, song ngữ Việt–Anh, có ảnh. Đổi ngôn ngữ bằng nút ở góc trên bên phải.
 - Ghi chép trong phần Luyện tập chỉ giữ trong lúc mở. Đóng tab là mất.
 
 Nếu trang trắng
